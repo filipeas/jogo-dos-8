@@ -14,15 +14,17 @@ class Busca
 
     public bool achouMeta = false;
 
-    public int cost = 0;
+    public int noFinal = 0;
 
     public No inicial;
     public No meta;
     public No _current;
 
     public List<No> aberto = new List<No> { };
+    public List<No> abertoTemp = new List<No> { };
     public List<No> fechado = new List<No> { };
     public List<No> solucao = new List<No> { };
+    public List<No> arvore = new List<No> { };
 
     public Busca(No _ini, No _meta, int pMax)
     {
@@ -35,8 +37,8 @@ class Busca
     */
     public void buscaLargura()
     {
-        // 0. instancia de qtd de nós visitados
-        int nos = 0;
+        // 0. instancia do nivel do nó resultado
+        noFinal = 0;
 
         //1. Verifica se o problema é solúvel
         if (!isSoluvel(inicial))
@@ -54,7 +56,7 @@ class Busca
         while (aberto.Count > 0 && !achouMeta)
         {
             // nó visitado é contabilizado
-            nos += 1;
+            noFinal += 1;
             // Console.WriteLine("Profundidade atual: " + _current.prof);
             if (isMeta(_current))
             {
@@ -84,7 +86,9 @@ class Busca
         //10. Termina
         //Console.WriteLine("->SOLÚVEL\n-->INVERSÕES: " + _inversoes + "\n");
         // printa qtd de nós gerados
-        Console.Write("Qtd. de nós visitados: " + nos + "\n");
+        // Console.Write("Custo de caminho (nível da árvore onde foi encontrado a resposta): " + solucao.Count + "\n");
+        // Console.Write("Custo de espaço (qtd de nós não expandidos): " + aberto.Count + "\n");
+        // Console.Write("Custo de tempo (qtd de nós expandidos): " + noFinal + "\n");
 
     }
 
@@ -95,8 +99,8 @@ class Busca
     {
         Console.WriteLine("Buscando profundidade máxima: " + profMax);
 
-        // 0. instancia de qtd de nós visitados
-        int nos = 0;
+        // 0. instancia do nivel do nó resultado
+        noFinal = 0;
 
         //1. Verifica se o problema é solúvel
         if (!isSoluvel(inicial))
@@ -115,7 +119,7 @@ class Busca
         while (aberto.Count > 0 && !achouMeta)
         {
             // nó visitado é contabilizado
-            nos += 1;
+            noFinal += 1;
             // Console.WriteLine("Profundidade atual: " + _current.prof);
             //5. Checa se o estado é meta                  
             if (isMeta(_current))
@@ -161,7 +165,9 @@ class Busca
 
         //10. Termina
         // printa qtd de nós gerados
-        Console.Write("Qtd. de nós visitados: " + nos + "\n");
+        // Console.Write("Custo de caminho (nível da árvore onde foi encontrado a resposta): " + solucao.Count + "\n");
+        // Console.Write("Custo de espaço (qtd de nós não expandidos): " + aberto.Count + "\n");
+        // Console.Write("Custo de tempo (qtd de nós expandidos): " + noFinal + "\n");
     }
 
     /**
@@ -169,8 +175,8 @@ class Busca
     */
     public void buscaGulosa()
     {
-        // 0. instancia de qtd de nós visitados
-        int nos = 0;
+        // 0. instancia do nivel do nó resultado
+        noFinal = 0;
 
         //1. Verifica se o problema é solúvel
         if (!isSoluvel(inicial))
@@ -185,10 +191,13 @@ class Busca
 
         aberto.Add(_current);
 
+        abertoTemp.Add(_current);
+
         while (aberto.Count > 0 && !achouMeta)
         {
             // nó visitado é contabilizado
-            nos += 1;
+            noFinal += 1;
+
             // Console.WriteLine("Profundidade atual: " + _current.prof);
             if (isMeta(_current))
             {
@@ -204,6 +213,8 @@ class Busca
             }
 
             aberto.Remove(_current);
+
+            abertoTemp.Remove(_current);
 
             if (aberto.Count > 0)
             {
@@ -248,7 +259,9 @@ class Busca
         //10. Termina
         //Console.WriteLine("->SOLÚVEL\n-->INVERSÕES: " + _inversoes + "\n");
         // printa qtd de nós gerados
-        Console.Write("Qtd. de nós visitados: " + nos + "\n");
+        // Console.Write("Custo de caminho (nível da árvore onde foi encontrado a resposta): " + noFinal + "\n");
+        // Console.Write("Custo de espaço (qtd de nós não expandidos): " + abertoTemp.Count + "\n");
+        // Console.Write("Custo de tempo (qtd de nós expandidos): " + solucao.Count + "\n");
     }
 
     /**
@@ -256,9 +269,6 @@ class Busca
     */
     public void buscaAStar()
     {
-        // 0. instancia de qtd de nós visitados
-        int nos = 0;
-
         //1. Verifica se o problema é solúvel
         if (!isSoluvel(inicial))
         {
@@ -277,8 +287,6 @@ class Busca
 
         while (aberto.Count > 0 && !achouMeta)
         {
-            // nó visitado é contabilizado
-            nos += 1;
             // Console.WriteLine("Profundidade atual: " + _current.prof);
             if (isMeta(_current))
             {
@@ -334,7 +342,7 @@ class Busca
                 // Console.Write("\nno selecionado: \n");
                 // _current.mostraValores();
                 // Console.WriteLine("=====");
-                // System.Threading.Thread.Sleep(500);
+                // System.Threading.Thread.Sleep(1000);
             }
         }
 
@@ -348,9 +356,9 @@ class Busca
         //10. Termina
         //Console.WriteLine("->SOLÚVEL\n-->INVERSÕES: " + _inversoes + "\n");
         // printa qtd de nós gerados
-        Console.Write("Qtd. de nós visitados: " + nos + "\n");
-        Console.Write("Tamanho da lista aberta: " + aberto.Count + "\n");
-        Console.Write("Tamanho da lista fechado: " + fechado.Count + "\n");
+        // Console.Write("Custo de caminho (nível da árvore onde foi encontrado a resposta): " + solucao.First().g + "\n");
+        // Console.Write("Custo de espaço (qtd de nós não expandidos): " + aberto.Count + "\n");
+        // Console.Write("Custo de tempo (qtd de nós expandidos): " + fechado.Count + "\n");
     }
 
     /**
@@ -426,6 +434,26 @@ class Busca
         return true;
     }
 
+    public List<int> posicaoFinal(int numeroProcurado)
+    {
+        List<int> posicao = new List<int> { };
+
+        for (int i = 0; i < 3; i++)
+        {
+            for (int j = 0; j < 3; j++)
+            {
+                if (numeroProcurado == meta._state[i, j])
+                {
+                    posicao.Add(i);
+                    posicao.Add(j);
+                    return posicao;
+                }
+            }
+        }
+
+        return posicao;
+    }
+
     // calcula a distancia manhattan entre dois pontos
     private static int ManhattanDistanceBetweenCoordinates(int p1_x, int p1_y, int p2_x, int p2_y)
     {
@@ -450,14 +478,16 @@ class Busca
                 if (value == 0) continue;
 
                 // obtenha a coordenada final para o valor atual:
-                int finalX = value / n;
-                int finalY = value % n;
+                int finalX = posicaoFinal(value)[0];
+                int finalY = posicaoFinal(value)[1];
 
                 // calcula distancia mengattan:
                 int dist = ManhattanDistanceBetweenCoordinates(i, j, finalX, finalY);
 
-                //Console.Write("[" + i + "," + j + "] with value of " + board[i, j] + " has to been moved to [" + finalX + "," + finalY + "] coordinates.");
-                //Console.WriteLine(" Manhattan distance to goal: " + dist );
+                // Console.Write("posicao final: [" + posicaoFinal(value)[0] + ", " + posicaoFinal(value)[1] + "]");
+                // Console.Write("[finalx: " + finalX + ", finaly: " + finalY + "], [i: " + i + ", j: " + j + "], value: " + value + ", n: " + n + "\n");
+                // Console.Write("[" + i + "," + j + "] with value of " + curr._state[i, j] + " has to been moved to [" + finalX + "," + finalY + "] coordinates.");
+                // Console.WriteLine(" Manhattan distance to goal: " + dist);
 
                 totalDifference += dist;
             }
@@ -481,6 +511,56 @@ class Busca
         No _novoRight = new No(curr._state, curr);
         No _novoLeft = new No(curr._state, curr);
 
+        arvore.Add(curr);
+
+        // Peça vazia move-se para a esquerda
+        if (_novoLeft.moveLeft())
+        {
+            if (equalPrevious(_novoLeft, curr) == false)
+            {
+                _achou = true;
+                // guardando peso do no atual + o peso do pai (necessario para busca A*)
+                _novoLeft.g = curr.g + 1; // g(n)
+                _novoLeft.h = ManhattanDistance(_novoLeft); // h(n)
+                _novoLeft.f = _novoLeft.g + _novoLeft.h; // f(n)
+                aberto.Add(_novoLeft);
+                abertoTemp.Add(_novoLeft);
+                arvore.Add(_novoLeft);
+                // teste para largura, profundidade e guloso
+                // Console.Write("\nManhanttan: " + ManhattanDistance(_novoLeft) + "\n");
+                // teste para A*
+                // Console.Write("\nA* Manhanttan g(n): " + _novoLeft.g + "\n");
+                // Console.Write("\nA* Manhanttan h(n): " + _novoLeft.h + "\n");
+                // Console.Write("\nA* Manhanttan f(n): " + _novoLeft.f + "\n");
+                // _novoLeft.mostraValores();
+                // Console.WriteLine("\n");
+            }
+        }
+
+        // Peça vazia move-se para a direita
+        if (_novoRight.moveRight())
+        {
+            if (equalPrevious(_novoRight, curr) == false)
+            {
+                _achou = true;
+                // guardando peso do no atual + o peso do pai (necessario para busca A*)
+                _novoRight.g = curr.g + 1; // g(n)
+                _novoRight.h = ManhattanDistance(_novoRight); // h(n)
+                _novoRight.f = _novoRight.g + _novoRight.h; // f(n)
+                aberto.Add(_novoRight);
+                abertoTemp.Add(_novoRight);
+                arvore.Add(_novoRight);
+                // teste para largura, profundidade e guloso
+                // Console.Write("\nManhanttan: " + ManhattanDistance(_novoRight) + "\n");
+                // teste para A*
+                // Console.Write("\nA* Manhanttan g(n): " + _novoRight.g + "\n");
+                // Console.Write("\nA* Manhanttan h(n): " + _novoRight.h + "\n");
+                // Console.Write("\nA* Manhanttan f(n): " + _novoRight.f + "\n");
+                // _novoRight.mostraValores();
+                // Console.WriteLine("\n");
+            }
+        }
+
         // Peça vazia move-se para cima
         if (_novoUp.moveUp())
         {
@@ -492,6 +572,8 @@ class Busca
                 _novoUp.h = ManhattanDistance(_novoUp); // h(n)
                 _novoUp.f = _novoUp.g + _novoUp.h; // f(n)
                 aberto.Add(_novoUp);
+                abertoTemp.Add(_novoUp);
+                arvore.Add(_novoUp);
                 // teste para largura, profundidade e guloso
                 // Console.Write("\nManhanttan: " + ManhattanDistance(_novoUp) + "\n");
                 // teste para A*
@@ -515,6 +597,8 @@ class Busca
                 _novoDown.h = ManhattanDistance(_novoDown); // h(n)
                 _novoDown.f = _novoDown.g + _novoDown.h; // f(n)
                 aberto.Add(_novoDown);
+                abertoTemp.Add(_novoDown);
+                arvore.Add(_novoDown);
                 // teste para largura, profundidade e guloso
                 // Console.Write("\nManhanttan: " + ManhattanDistance(_novoDown) + "\n");
                 // teste para A*
@@ -526,49 +610,12 @@ class Busca
             }
         }
 
-        // Peça vazia move-se para a esquerda
-        if (_novoLeft.moveLeft())
-        {
-            if (equalPrevious(_novoLeft, curr) == false)
-            {
-                _achou = true;
-                // guardando peso do no atual + o peso do pai (necessario para busca A*)
-                _novoLeft.g = curr.g + 1; // g(n)
-                _novoLeft.h = ManhattanDistance(_novoLeft); // h(n)
-                _novoLeft.f = _novoLeft.g + _novoLeft.h; // f(n)
-                aberto.Add(_novoLeft);
-                // teste para largura, profundidade e guloso
-                // Console.Write("\nManhanttan: " + ManhattanDistance(_novoLeft) + "\n");
-                // teste para A*
-                // Console.Write("\nA* Manhanttan g(n): " + _novoLeft.g + "\n");
-                // Console.Write("\nA* Manhanttan h(n): " + _novoLeft.h + "\n");
-                // Console.Write("\nA* Manhanttan f(n): " + _novoLeft.f + "\n");
-                // _novoLeft.mostraValores();
-                // Console.WriteLine("\n");
-            }
-        }
-
-        // Peça vazia move-se para a direita
-        if (_novoRight.moveRight())
-        {
-            if (equalPrevious(_novoRight, curr) == false)
-            {
-                _achou = true;
-                // guardando peso do no atual + o peso do pai (necessario para busca A*)
-                _novoRight.g = curr.g + 1; // g(n)
-                _novoRight.h = ManhattanDistance(_novoRight); // h(n)
-                _novoRight.f = _novoRight.g + _novoRight.h; // f(n)
-                aberto.Add(_novoRight);
-                // teste para largura, profundidade e guloso
-                // Console.Write("\nManhanttan: " + ManhattanDistance(_novoRight) + "\n");
-                // teste para A*
-                // Console.Write("\nA* Manhanttan g(n): " + _novoRight.g + "\n");
-                // Console.Write("\nA* Manhanttan h(n): " + _novoRight.h + "\n");
-                // Console.Write("\nA* Manhanttan f(n): " + _novoRight.f + "\n");
-                // _novoRight.mostraValores();
-                // Console.WriteLine("\n");
-            }
-        }
+        int[,] separador = new int[3, 3]{
+            {0, 0, 0},
+            {0, 0, 0},
+            {0, 0, 0}
+        };
+        arvore.Add(new No(separador, null));
 
         return _achou;
     }
