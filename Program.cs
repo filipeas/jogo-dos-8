@@ -16,12 +16,6 @@ namespace Puzzle_Search_Problem___Jogo_dos_8
         //     {1, 4, 6}
         // };
 
-        public static int[,] estadoInicial = new int[3, 3]{
-            {1, 4, 0},
-            {3, 5, 2},
-            {6, 7, 8}
-        };
-
         // funciona para largura, profundidade, guloso e A*
         // public static int[,] estadoInicial = new int[3, 3]{
         //     {1, 0, 2},
@@ -57,6 +51,31 @@ namespace Puzzle_Search_Problem___Jogo_dos_8
         //     {7, 6, 8}
         // };
 
+        // testes do professor
+        public static int[,] estadoInicial = new int[3, 3]{
+            {4, 1, 2},
+            {0, 5, 3},
+            {6, 7, 8}
+        };
+
+        // public static int[,] estadoInicial = new int[3, 3]{
+        //     {0, 7, 2},
+        //     {1, 4, 3},
+        //     {6, 8, 5}
+        // };
+
+        // public static int[,] estadoInicial = new int[3, 3]{
+        //     {1, 2, 4},
+        //     {3, 5, 0},
+        //     {7, 6, 8}
+        // };
+
+        // public static int[,] estadoInicial = new int[3, 3]{
+        //     {1, 2, 3},
+        //     {4, 7, 5},
+        //     {6, 8, 0}
+        // };
+
         // public static int[,] estadoDesejado = new int[3, 3]{
         //     {0, 1, 2},
         //     {3, 4, 5},
@@ -75,35 +94,35 @@ namespace Puzzle_Search_Problem___Jogo_dos_8
 
             // Largura buscaLargura = new Largura(_ini, _met);
             // Console.Write("Tempo de execução: " + buscaLargura.tempoExecutado());
-            // printSolucao(buscaLargura.solucaoFinal()); // printa a solução da busca em largura
+            // // printSolucao(buscaLargura.solucaoFinal()); // printa a solução da busca em largura
             // Console.Write("Custo de caminho: " + buscaLargura.custoDeCaminho() + "\n");
             // Console.Write("Custo de espaço: " + buscaLargura.custoDeEspaco() + "\n");
             // Console.Write("Custo de tempo: " + buscaLargura.custoDeTempo() + "\n");
-            // // printArvore(busca.arvore); // printa a arvore ate a profundidade 5 da busca em largura
+            // printArvore(buscaLargura.arvoreFinal()); // printa a arvore ate a profundidade 5 da busca em largura
 
             // Profundidade buscaProfundidade = new Profundidade(_ini, _met);
-            // Console.Write("Tempo de execução: " + buscaProfundidade.tempoExecutado());
-            // printSolucao(buscaProfundidade.solucaoFinal()); // printa a solução da busca em profundidade
+            // Console.Write("Tempo de execução: " + buscaProfundidade.tempoExecutado() + "\n");
+            // // printSolucao(buscaProfundidade.solucaoEscolhasDosPais()); // printa a solução da busca em profundidade
             // Console.Write("Custo de caminho: " + buscaProfundidade.custoDeCaminho() + "\n");
             // Console.Write("Custo de espaço: " + buscaProfundidade.custoDeEspaco() + "\n");
             // Console.Write("Custo de tempo: " + buscaProfundidade.custoDeTempo() + "\n");
-            // // printArvore(busca.arvore); // printa a arvore ate a profundidade 5 da busca em profundidade
+            // printArvore(buscaProfundidade.arvoreFinal()); // printa a arvore ate a profundidade 5 da busca em profundidade
 
             // Guloso buscaGulosa = new Guloso(_ini, _met);
-            // Console.Write("Tempo de execução: " + buscaGulosa.tempoExecutado());
-            // printSolucao(buscaGulosa.solucaoFinal()); // printa a solução da busca gulosa
+            // Console.Write("Tempo de execução: " + buscaGulosa.tempoExecutado() + "\n");
+            // // printSolucao(buscaGulosa.solucaoEscolhasDosPais()); // printa a solução da busca gulosa
             // Console.Write("Custo de caminho: " + buscaGulosa.custoDeCaminho() + "\n");
             // Console.Write("Custo de espaço: " + buscaGulosa.custoDeEspaco() + "\n");
             // Console.Write("Custo de tempo: " + buscaGulosa.custoDeTempo() + "\n");
-            // // printArvore(busca.arvore); // printa a arvore ate a profundidade 5 da busca gulosa
+            // printArvore(buscaGulosa.arvoreFinal()); // printa a arvore ate a profundidade 5 da busca gulosa
 
             // AStar buscaAStar = new AStar(_ini, _met);
-            // Console.Write("Tempo de execução: " + buscaAStar.tempoExecutado());
-            // printSolucao(buscaAStar.solucaoFinal()); // printa a solução da busca A*
+            // Console.Write("Tempo de execução: " + buscaAStar.tempoExecutado() + "\n");
+            // // printSolucao(buscaAStar.solucaoEscolhasDosPais()); // printa a solução da busca A*
             // Console.Write("Custo de caminho: " + buscaAStar.custoDeCaminho() + "\n");
             // Console.Write("Custo de espaço: " + buscaAStar.custoDeEspaco() + "\n");
             // Console.Write("Custo de tempo: " + buscaAStar.custoDeTempo() + "\n");
-            // // printArvore(busca.arvore); // printa a arvore ate a profundidade 5 da busca A*
+            // printArvore(buscaAStar.arvoreFinal()); // printa a arvore ate a profundidade 5 da busca A*
 
 
             // insira o estado inicial, o desejado e o limite de nós que 
@@ -176,11 +195,11 @@ namespace Puzzle_Search_Problem___Jogo_dos_8
 
             foreach (No noArvore in arvore)
             {
-                if (noArvore.prof > 5) break;
+                if (noArvore.prof > 6) break;
 
                 if (noArvore.isIgual(noSeparador))
                 {
-                    Console.Write("\n----------\n");
+                    Console.Write("\n--------------------\n");
                     continue;
                 }
                 else
@@ -188,6 +207,7 @@ namespace Puzzle_Search_Problem___Jogo_dos_8
                     Console.Write("\nProfundidade: " + noArvore.prof + "\n");
                     noArvore.mostraValores();
                     Console.Write("\n");
+                    // System.Threading.Thread.Sleep(500);
                 }
             }
         }

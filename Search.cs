@@ -15,6 +15,7 @@ class Busca
     public bool achouMeta = false;
 
     public int noFinal = 0;
+    public int custoEspaco = 0;
 
     public No inicial;
     public No meta;
@@ -24,6 +25,7 @@ class Busca
     public List<No> abertoTemp = new List<No> { };
     public List<No> fechado = new List<No> { };
     public List<No> solucao = new List<No> { };
+    public List<No> solucaoPais = new List<No> { };
     public List<No> arvore = new List<No> { };
 
     public Busca(No _ini, No _meta, int pMax)
@@ -57,6 +59,10 @@ class Busca
         {
             // nó visitado é contabilizado
             noFinal += 1;
+
+            // adiciona pai atual para a solução
+            solucaoPais.Add(_current);
+
             // Console.WriteLine("Profundidade atual: " + _current.prof);
             if (isMeta(_current))
             {
@@ -102,6 +108,8 @@ class Busca
         // 0. instancia do nivel do nó resultado
         noFinal = 0;
 
+        custoEspaco = 0;
+
         //1. Verifica se o problema é solúvel
         if (!isSoluvel(inicial))
         {
@@ -118,8 +126,12 @@ class Busca
         //4. Enquanto tiverem estados abertos ou a meta não for encontrada
         while (aberto.Count > 0 && !achouMeta)
         {
-            // nó visitado é contabilizado
+            // nó visitado é contabilizado (custo de caminho)
             noFinal += 1;
+
+            // adiciona pai atual para a solução
+            solucaoPais.Add(_current);
+
             // Console.WriteLine("Profundidade atual: " + _current.prof);
             //5. Checa se o estado é meta                  
             if (isMeta(_current))
@@ -197,6 +209,9 @@ class Busca
         {
             // nó visitado é contabilizado
             noFinal += 1;
+
+            // adiciona pai atual para a solução
+            solucaoPais.Add(_current);
 
             // Console.WriteLine("Profundidade atual: " + _current.prof);
             if (isMeta(_current))
@@ -287,6 +302,9 @@ class Busca
 
         while (aberto.Count > 0 && !achouMeta)
         {
+            // adiciona pai atual para a solução
+            solucaoPais.Add(_current);
+
             // Console.WriteLine("Profundidade atual: " + _current.prof);
             if (isMeta(_current))
             {
@@ -526,6 +544,7 @@ class Busca
                 aberto.Add(_novoLeft);
                 abertoTemp.Add(_novoLeft);
                 arvore.Add(_novoLeft);
+                custoEspaco += 1; // no expandido pela profundidade
                 // teste para largura, profundidade e guloso
                 // Console.Write("\nManhanttan: " + ManhattanDistance(_novoLeft) + "\n");
                 // teste para A*
@@ -550,6 +569,7 @@ class Busca
                 aberto.Add(_novoRight);
                 abertoTemp.Add(_novoRight);
                 arvore.Add(_novoRight);
+                custoEspaco += 1; // no expandido pela profundidade
                 // teste para largura, profundidade e guloso
                 // Console.Write("\nManhanttan: " + ManhattanDistance(_novoRight) + "\n");
                 // teste para A*
@@ -574,6 +594,7 @@ class Busca
                 aberto.Add(_novoUp);
                 abertoTemp.Add(_novoUp);
                 arvore.Add(_novoUp);
+                custoEspaco += 1; // no expandido pela profundidade
                 // teste para largura, profundidade e guloso
                 // Console.Write("\nManhanttan: " + ManhattanDistance(_novoUp) + "\n");
                 // teste para A*
@@ -599,6 +620,7 @@ class Busca
                 aberto.Add(_novoDown);
                 abertoTemp.Add(_novoDown);
                 arvore.Add(_novoDown);
+                custoEspaco += 1; // no expandido pela profundidade
                 // teste para largura, profundidade e guloso
                 // Console.Write("\nManhanttan: " + ManhattanDistance(_novoDown) + "\n");
                 // teste para A*

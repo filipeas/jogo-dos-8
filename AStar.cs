@@ -34,11 +34,25 @@ class AStar
         return this.busca.fechado.Count;
     }
 
+    /**
+    * Método que mostra a lista de escolhas passo a passo até achar a resposta
+    */
+    public List<No> solucaoEscolhasDosPais()
+    {
+        return this.busca.solucaoPais;
+    }
+
+    /**
+    * Método que mostra a lista de pais que chegam a resposta direta
+    */
     public List<No> solucaoFinal()
     {
         return this.busca.solucao;
     }
 
+    /**
+    * Método que printa a árvore
+    */
     public List<No> arvoreFinal()
     {
         return this.busca.arvore;
