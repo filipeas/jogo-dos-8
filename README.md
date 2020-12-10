@@ -20,6 +20,7 @@
 * custoDeCaminho: calcula e retorna o custo do caminho;
 * custoDeEspaco: calcula e retorna o custo de espaço;
 * custoDeTempo: calcula e retorna o custo de tempo;
+* solucaoEscolhasDosPais: retorna a lista de estados passo a passo até a resposta final;
 * solucaoFinal: retorna a lista de estados da resposta final;
 * arvoreFinal: retorna a lista de estados da arvore completa;
 * tempoExecutado: retorna o tempo de execução da busca;

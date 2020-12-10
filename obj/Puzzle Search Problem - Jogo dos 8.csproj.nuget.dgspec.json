@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\felip\\Documents\\UFPI\\IA\\primeiro trabalho\\8PuzzleAI\\TEST CODES\\Puzzle Search Problem - Jogo dos 8\\Puzzle Search Problem - Jogo dos 8.csproj": {}
+    "C:\\Users\\felip\\Documents\\UFPI\\IA\\primeiro trabalho\\jogo-dos-8\\Puzzle Search Problem - Jogo dos 8.csproj": {}
   },
   "projects": {
-    "C:\\Users\\felip\\Documents\\UFPI\\IA\\primeiro trabalho\\8PuzzleAI\\TEST CODES\\Puzzle Search Problem - Jogo dos 8\\Puzzle Search Problem - Jogo dos 8.csproj": {
+    "C:\\Users\\felip\\Documents\\UFPI\\IA\\primeiro trabalho\\jogo-dos-8\\Puzzle Search Problem - Jogo dos 8.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\felip\\Documents\\UFPI\\IA\\primeiro trabalho\\8PuzzleAI\\TEST CODES\\Puzzle Search Problem - Jogo dos 8\\Puzzle Search Problem - Jogo dos 8.csproj",
+        "projectUniqueName": "C:\\Users\\felip\\Documents\\UFPI\\IA\\primeiro trabalho\\jogo-dos-8\\Puzzle Search Problem - Jogo dos 8.csproj",
         "projectName": "Puzzle Search Problem - Jogo dos 8",
-        "projectPath": "C:\\Users\\felip\\Documents\\UFPI\\IA\\primeiro trabalho\\8PuzzleAI\\TEST CODES\\Puzzle Search Problem - Jogo dos 8\\Puzzle Search Problem - Jogo dos 8.csproj",
+        "projectPath": "C:\\Users\\felip\\Documents\\UFPI\\IA\\primeiro trabalho\\jogo-dos-8\\Puzzle Search Problem - Jogo dos 8.csproj",
         "packagesPath": "C:\\Users\\felip\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\felip\\Documents\\UFPI\\IA\\primeiro trabalho\\8PuzzleAI\\TEST CODES\\Puzzle Search Problem - Jogo dos 8\\obj\\",
+        "outputPath": "C:\\Users\\felip\\Documents\\UFPI\\IA\\primeiro trabalho\\jogo-dos-8\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\felip\\AppData\\Roaming\\NuGet\\NuGet.Config"

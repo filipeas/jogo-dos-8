@@ -30,3 +30,19 @@ C:\Users\felip\Documents\UFPI\IA\primeiro trabalho\8PuzzleAI\TEST CODES\Puzzle S
 C:\Users\felip\Documents\UFPI\IA\primeiro trabalho\8PuzzleAI\TEST CODES\Puzzle Search Problem - Jogo dos 8\obj\Debug\net5.0\ref\Puzzle Search Problem - Jogo dos 8.dll
 C:\Users\felip\Documents\UFPI\IA\primeiro trabalho\8PuzzleAI\TEST CODES\Puzzle Search Problem - Jogo dos 8\obj\Debug\net5.0\Puzzle Search Problem - Jogo dos 8.pdb
 C:\Users\felip\Documents\UFPI\IA\primeiro trabalho\8PuzzleAI\TEST CODES\Puzzle Search Problem - Jogo dos 8\obj\Debug\net5.0\Puzzle Search Problem - Jogo dos 8.genruntimeconfig.cache
+C:\Users\felip\Documents\UFPI\IA\primeiro trabalho\jogo-dos-8\bin\Debug\net5.0\Puzzle Search Problem - Jogo dos 8.exe
+C:\Users\felip\Documents\UFPI\IA\primeiro trabalho\jogo-dos-8\bin\Debug\net5.0\Puzzle Search Problem - Jogo dos 8.deps.json
+C:\Users\felip\Documents\UFPI\IA\primeiro trabalho\jogo-dos-8\bin\Debug\net5.0\Puzzle Search Problem - Jogo dos 8.runtimeconfig.json
+C:\Users\felip\Documents\UFPI\IA\primeiro trabalho\jogo-dos-8\bin\Debug\net5.0\Puzzle Search Problem - Jogo dos 8.runtimeconfig.dev.json
+C:\Users\felip\Documents\UFPI\IA\primeiro trabalho\jogo-dos-8\bin\Debug\net5.0\Puzzle Search Problem - Jogo dos 8.dll
+C:\Users\felip\Documents\UFPI\IA\primeiro trabalho\jogo-dos-8\bin\Debug\net5.0\ref\Puzzle Search Problem - Jogo dos 8.dll
+C:\Users\felip\Documents\UFPI\IA\primeiro trabalho\jogo-dos-8\bin\Debug\net5.0\Puzzle Search Problem - Jogo dos 8.pdb
+C:\Users\felip\Documents\UFPI\IA\primeiro trabalho\jogo-dos-8\obj\Debug\net5.0\Puzzle Search Problem - Jogo dos 8.csprojAssemblyReference.cache
+C:\Users\felip\Documents\UFPI\IA\primeiro trabalho\jogo-dos-8\obj\Debug\net5.0\Puzzle Search Problem - Jogo dos 8.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\felip\Documents\UFPI\IA\primeiro trabalho\jogo-dos-8\obj\Debug\net5.0\Puzzle Search Problem - Jogo dos 8.AssemblyInfoInputs.cache
+C:\Users\felip\Documents\UFPI\IA\primeiro trabalho\jogo-dos-8\obj\Debug\net5.0\Puzzle Search Problem - Jogo dos 8.AssemblyInfo.cs
+C:\Users\felip\Documents\UFPI\IA\primeiro trabalho\jogo-dos-8\obj\Debug\net5.0\Puzzle Search Problem - Jogo dos 8.csproj.CoreCompileInputs.cache
+C:\Users\felip\Documents\UFPI\IA\primeiro trabalho\jogo-dos-8\obj\Debug\net5.0\Puzzle Search Problem - Jogo dos 8.dll
+C:\Users\felip\Documents\UFPI\IA\primeiro trabalho\jogo-dos-8\obj\Debug\net5.0\ref\Puzzle Search Problem - Jogo dos 8.dll
+C:\Users\felip\Documents\UFPI\IA\primeiro trabalho\jogo-dos-8\obj\Debug\net5.0\Puzzle Search Problem - Jogo dos 8.pdb
+C:\Users\felip\Documents\UFPI\IA\primeiro trabalho\jogo-dos-8\obj\Debug\net5.0\Puzzle Search Problem - Jogo dos 8.genruntimeconfig.cache
